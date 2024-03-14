@@ -1,0 +1,63 @@
+[
+  {
+    "type": "record",
+    "name": "AvroPet",
+    "namespace": "expeditors.backend.avro",
+    "fields": [
+      {
+        "name": "pet_type",
+        "type": "string",
+        "doc": "Type of Animal"
+      },
+      {
+        "name": "pet_name",
+        "type": "string",
+        "default": "",
+        "doc": "Pet Name, if known"
+      },
+      {
+        "name": "pet_breed",
+        "type": "string",
+        "default": "",
+        "doc": "Pet Breed, if known (e.g. siamese, dalmation)"
+      },
+      {
+        "name": "adoption_date",
+        "type": "string",
+        "default": "",
+        "doc": "Date of adoption, if known"
+      }
+    ]
+  },
+  {
+    "type": "record",
+    "name": "FullAdopterMessage",
+    "namespace": "expeditors.backend.avro",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "default": "",
+        "doc": "Name of Adopter"
+      },
+      {
+        "name": "phoneNumber",
+        "type": "string",
+        "default": "",
+        "doc": "Phone Number"
+      },
+      {
+        "name": "pets",
+        "type": {
+          "type": "array",
+          "items": "expeditors.backend.avro.AvroPet"
+        }
+      },
+      {
+        "name": "time_stamp",
+        "type": "string",
+        "doc": "Datetime when the message was generated"
+      }
+    ]
+  }
+]

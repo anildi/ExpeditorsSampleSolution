@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link type="text/css" rel="stylesheet" media="all"
+          href=# th:href="@{/css/larkU.css}">
+    <title>LarkU</title>
+</head>
+<body>
+<div th:replace="~{fragments/larkUHeader :: header}"></div>
+<h2>Adopter Info</h2>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>[[${adopter.id}]]</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>[[${adopter.name}]]</td>
+    </tr>
+    <tr>
+        <td>Phone Number</td>
+        <td>[[${adopter.phoneNumber}]]</td>
+    </tr>
+    <tr>
+        <td>Pets</td>
+        <td>
+           <span th:each="pet : ${adopter.pets}">
+                [[${pet}]]<br/>
+           </span>
+        </td>
+    </tr>
+</table>
+<br/>
+<div>
+    <table>
+        <tr>
+            <td>
+                <form th:action="@{/pets/addPetToAdopter(adopterId=${adopter.id})}"
+                      method="get" th:object="${pet}">
+                    <input type="hidden" name="adopterId" th:value="${adopter.id}"/>
+                    <input type="submit" value="Add Pet"/>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form th:action="@{/pets/removePetFromAdopter(adopterId=${adopter.id})}"
+                      method="post" th:object="${pet}">
+                    <input type="submit" value="Remove Pet With Id"/>
+                    <input type="text" name="petId"/>
+                    <input type="hidden" th:value="${adopter.id}"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+<br/>
+<a th:href="@{/}">Home</a>
+</body>
+</html>

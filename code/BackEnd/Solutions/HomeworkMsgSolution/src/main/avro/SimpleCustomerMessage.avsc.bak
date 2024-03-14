@@ -1,0 +1,35 @@
+{
+	"type": "record",
+	"name": "SimpleCustomerMessage",
+	"namespace": "expeditors.backend.avro",
+	"fields": [
+		{
+			"name": "name",
+			"type":"string",
+			"default": "",
+			"doc": "Name of Customer"
+		},
+		{
+			"name": "phoneNumber",
+			"type":"string",
+			"default": "",
+			"doc": "Phone Number"
+		},
+		{
+			"name": "dob",
+			"type": "string",
+			"default": "",
+			"doc": "Date of Birth"
+		},
+		{
+			"name": "status",
+			"type": "string",
+			"default": "",
+			"doc": "Status"
+		},
+		{
+			"name": "time_stamp",
+			"type":"string", "doc": "Datetime when the message was generated"
+		}
+	]
+}

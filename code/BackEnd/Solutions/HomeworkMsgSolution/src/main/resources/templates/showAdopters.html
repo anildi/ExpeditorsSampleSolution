@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link type="text/css" rel="stylesheet" media="all" th:href="@{/css/larkU.css}">
+    <title>LarkU</title>
+</head>
+<body>
+<div th:replace="~{fragments/larkUHeader :: header}"></div>
+<h2>All Adopters and Pets</h2>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>PhoneNumber</td>
+<!--        <td>Pets</td>-->
+    </tr>
+    <tr th:each="adopter : ${adopters}">
+        <td><a class="link"
+                th:href="@{/pets/showAdopter(adopterId=${adopter.id})}">[[${adopter.id}]]</a></td>
+        <td>[[${adopter.name}]]</td>
+        <td>[[${adopter.phoneNumber}]]</td>
+<!--        <div th:if="${adopter.pets.size() > 0}">-->
+<!--            <td>-->
+<!--                <span th:each="pet : ${adopter.pets}">-->
+<!--                    <span th:text="${pet.type} + '-' + ${pet.name} + '-' + ${pet.breed} + '-' + ${pet.adoptionDate}"/><br/>-->
+<!--                </span>-->
+<!--            </td>-->
+<!--        </div>-->
+<!--        <div class="" th:unless="${adopter.pets.size() > 0}">-->
+<!--            <td></td>-->
+<!--        </div>-->
+    </tr>
+</table>
+<br/> <a th:href="@{/}">Home</a></td>
+</body>
+</html>

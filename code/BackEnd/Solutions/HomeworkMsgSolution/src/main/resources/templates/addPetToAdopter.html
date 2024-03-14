@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link type="text/css" rel="stylesheet" media="all"
+          th:href="@{/css/larkU.css}">
+    <title>LarkU</title>
+</head>
+<body>
+<div th:replace="~{fragments/larkUHeader :: header}"></div>
+<h2>Add Pet to Adopter</h2>
+<form th:action="@{/pets/addPetToAdopter/{id}(id = ${adopterId})}" method="post" th:object="${pet}">
+    <table border="1">
+        <tr>
+            <td>Pet Type</td>
+            <td>
+                <select class="fillit" name="type">
+                    <option th:each="type : ${petTypes}"
+                            th:value="${type}"
+                            th:text="${type}">
+                    </option>
+                </select>
+            </td>
+<!--            <td><input type="text" th:field="*{type}" placeholder="string"/></td>-->
+        </tr>
+        <tr>
+            <td>Pet Name</td>
+            <td><input type="text" th:field="*{name}" placeholder="string"/></td>
+        </tr>
+        <tr>
+            <td>Pet Breed</td>
+            <td><input type="text" th:field="*{breed}" placeholder="string"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add Pet"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

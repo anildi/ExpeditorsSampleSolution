@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link type="text/css" rel="stylesheet" media="all" th:href="@{/css/larkU.css}">
+    <title>Adopter Messaging App</title>
+</head>
+<body>
+<h2>From public</h2>
+
+<table>
+
+    <tr>
+        <td><a th:href="@{/pets}">Show All Adopters</a></td>
+    </tr>
+    <tr>
+        <td>
+            <form method="get" th:action="@{/pets/showAdopter}">
+                <input type="text" name="adopterId"/> <input type="submit" value="Show Adopter With Id"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a th:href="@{/pets/addAdopter}">Add Adopter</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <form method="get" th:action="@{/pets/addPetToAdopter}">
+                <input type="text" name="adopterId"/> <input type="submit" value="Add Pet With Adopter Id"/>
+            </form>
+<!--            <a href="http://localhost:8080/pets/addPetToAdopter">Add Pet to Adopter</a>-->
+        </td>
+    </tr>
+    <tr>
+        <td><a th:href="@{/otherPage.html}">Other Page</a></td>
+    </tr>
+    <tr>
+        <td><a th:href="@{/adminPage}">Super Secret Admin Page</a></td>
+    </tr>
+    <tr>
+        <td><a th:href="@{/jpql}">Run Jpql Queries</a></td>
+    </tr>
+</table>
+<!--<div sec:authorize="hasRole('ADMIN')">-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td><a href="http://localhost:8080/adminPage.html">Same Super Secret Page Again</a></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<br/>
+<br/>
+<a href="/logout">Logout</a>
+</body>
+</html>
